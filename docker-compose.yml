@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+    php:
+        build:
+            context: .
+            dockerfile: docker/Php.Dockerfile
+        container_name: php_xfeeds
+        restart: always
+        working_dir: /var/www/app
+        volumes:
+            - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+#            - ./docker/php/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+            - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+            - ./:/var/www/app
