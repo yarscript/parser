@@ -131,7 +131,7 @@ class Parser extends HtmlParser
             $fi = clone $parent_fi;
 
             $fi->setMpn($item->getAttr('input#sku', 'value'));
-            $fi->setProductCode("{$this->getVendor()->getPrefix()}{$fi->getMpn()}");
+            $fi->setProductCode("{$this->getVendor()->getPrefix()}-{$fi->getMpn()}");
             $fi->setProduct($item->getText('h1.name'));
             $fi->setCostToUs((float)substr($item->getText('.your-price p.inline span'), 1));
             $fi->setRAvail(self::DEFAULT_AVAIL_NUMBER);
